@@ -1,4 +1,4 @@
-outboard_repository=hnnhwng/zmk-config-zen-2/tree/dongle/config/boards/shields/corneish_zen_dongle
+outboard_repository=hnnhwng/zmk-config-zen-2
 outboard_ref=master
 outboard_from=/
-outboard_to=boards/shields/absolem
+outboard_to=boards/shields/corneish_zen_dongle
