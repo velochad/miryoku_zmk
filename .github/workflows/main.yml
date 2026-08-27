@@ -94,13 +94,6 @@ jobs:
           keyboard_split="$keyboard"
           keyboard_base=`echo "$keyboard" | sed -e 's/_\(left\|right\|dongle\)//' -e 's/@.*//'`
 
-          # ZMK Studio: build the central side with the studio-rpc-usb-uart
-          # snippet.  The peripheral (right) side must not get it.
-          case "$keyboard_split" in
-            *_right* ) ;;
-            * ) echo "snippet_arg=-S studio-rpc-usb-uart" >> $GITHUB_OUTPUT ;;
-          esac
-
           configfile="${GITHUB_WORKSPACE}/miryoku_zmk/miryoku/custom_config.h"
 
           tmpfile="$configfile.tmp"
@@ -333,7 +326,7 @@ jobs:
           EX_DATAERR='65'
           cd "${GITHUB_WORKSPACE}/zmk/app"
           {
-            west $west_debug build -b ${{ matrix.board }} ${{ steps.main.outputs.snippet_arg }} $west_build_debug -- ${{ steps.main.outputs.shield_arg }} ${{ steps.main.outputs.modules_arg }} -DZMK_CONFIG="${GITHUB_WORKSPACE}/miryoku_zmk/config" ||
+            west $west_debug build -b ${{ matrix.board }} $west_build_debug -- ${{ steps.main.outputs.shield_arg }} ${{ steps.main.outputs.modules_arg }} -DZMK_CONFIG="${GITHUB_WORKSPACE}/miryoku_zmk/config" ||
             echo "$build_failed_message $?." ;
           } 2>&1 | tee "$log"
           if grep -q 'Invalid BOARD; see above.' "$log"
