@@ -326,7 +326,8 @@ jobs:
           EX_DATAERR='65'
           cd "${GITHUB_WORKSPACE}/zmk/app"
           {
-            west $west_debug build -b ${{ matrix.board }} ${{ steps.main.outputs.snippet_arg }} $west_build_debug -- ${{ steps.main.outputs.shield_arg }} ${{ steps.main.outputs.modules_arg }} -DZMK_CONFIG="${GITHUB_WORKSPACE}/miryoku_zmk/config" ||            echo "$build_failed_message $?." ;
+            west $west_debug build -b ${{ matrix.board }} ${{ steps.main.outputs.snippet_arg }} $west_build_debug -- ${{ steps.main.outputs.shield_arg }} ${{ steps.main.outputs.modules_arg }} -DZMK_CONFIG="${GITHUB_WORKSPACE}/miryoku_zmk/config" ||            
+            echo "$build_failed_message $?." ;
           } 2>&1 | tee "$log"
           if grep -q 'Invalid BOARD; see above.' "$log"
           then
