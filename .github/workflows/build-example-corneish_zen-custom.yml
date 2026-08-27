@@ -10,4 +10,4 @@ jobs:
     with:
       board: '["corneish_zen_left@2.0.0//zmk","corneish_zen_right@2.0.0//zmk"]'
       kconfig: '["CONFIG_ZMK_POINTING=y\nCONFIG_ZMK_DISPLAY_HIDE_MOMENTARY_LAYERS=y\nCONFIG_CUSTOM_WIDGET_LAYER_STATUS_HIDE_HEADING=y\nCONFIG_CUSTOM_WIDGET_LOGO_IMAGE_MIRYOKU=y\nCONFIG_IL0323_INVERT=y"]'
-      branches: '["caksoylar/zmk/caksoylar/zen-v1+v2"]'
+      branches: '["zmkfirmware/zmk/v0.3-branch caksoylar/zmk/caksoylar/zen-v1+v2"]
