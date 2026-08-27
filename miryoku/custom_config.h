@@ -78,3 +78,15 @@ XXX  K20  K21  K22  K23  K24       K25  K26  K27  K28  K29  XXX \
 #define U_FUN         9
 #define U_GAME       10
 #define U_GAMENUM    11
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        combo_studio_unlock {
+            key-positions = <30 35>;   // outer left thumb + outer right thumb
+            bindings = <&studio_unlock>;
+            timeout-ms = <100>;
+        };
+    };
+};
